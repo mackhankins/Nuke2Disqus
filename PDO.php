@@ -122,8 +122,9 @@ foreach($newsloop as $news){
 $rss->appendChild($channel);
 $dom->appendChild($rss);
 $dom->formatOutput = true;
-echo utf8_decode($dom->save('exported.xml'));  //We're saving this to same location as this file
+ //We're saving this to same location as this file
+echo utf8_decode($dom->save('exported.xml')); 
 //echo utf8_decode($dom->saveXML()); This will print it to screen
 
-//Bye Bye Connection
+//Close
 $dbh = null;
