@@ -1,5 +1,5 @@
-Xml creator existing comments for Disqus
-========================================
+Nuke to Disqus
+==============
 
 * Creates an xml file of existing comments
 * Tested on RavenNuke 2.51
@@ -12,4 +12,4 @@ Xml creator existing comments for Disqus
 5. Use the Generic (WXR) option on the Disqus import to upload exported.xml.
 
 #### Notes
-1.  You can use http://validator.w3.org/ to validate.
+*  You can use http://validator.w3.org/ to validate.
