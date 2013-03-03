@@ -10,7 +10,7 @@ This will create an exported.xml file so you can import your existing php nuke c
 2. Upload to public_html folder and run in browser.
 3. Using ftp, download exported.xml.
 4. Delete PDO.php.
-5. Use the Generic WXR option on the Disqus Import Page.
+5. Use the Generic WXR option on the Disqus Import Page to upload exported.xml.
 
 ### Notes
 1.  You can use http://validator.w3.org/ to validate before importing to Disqus
