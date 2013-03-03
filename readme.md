@@ -11,5 +11,5 @@ Xml creator existing comments for Disqus
 4. Delete PDO.php.
 5. Use the Generic (WXR) option on the Disqus import to upload exported.xml.
 
-### Notes
+#### Notes
 1.  You can use http://validator.w3.org/ to validate.
