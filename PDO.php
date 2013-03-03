@@ -20,16 +20,6 @@ $querystory = $dbh->prepare($sqlstory);
 $querystory->execute();
 $newsloop = $querystory->fetchAll();
 
-//Friendly Urls
-function urltitle($title){
-	$urltitle = str_replace('_', '-' , $title);
-	$urltitle = strtolower(str_replace(' ' , '-' , $urltitle));
-	$urltitle = strtolower(str_replace("'" , "" , $urltitle));
-	$urltitle = preg_replace('/[^a-z0-9-\']/i', '', $urltitle);
-	$urltitle = str_replace('--', '-' , $urltitle);
-	$urltitle = str_replace('---', '-' , $urltitle);
-	return $urltitle;
-}
 
 //Some Replacements
 function disqushtml($context){
@@ -54,7 +44,6 @@ foreach($newsloop as $news){
 	$title = $news['title'];
 	$time = $news['time'];
 	$pageurl = $nukeurl.'/modules.php?name='.$module_name.'&file=article&sid='.$sid;
-	//$pageurl = $nukeurl.'/article'.$sid.'-'.urltitle($title).'.html'; (just an example how you can modify this)
 	$item = $dom->createElement('item');
 	$ttitle = $dom->createElement('title');
 	$ttitledata = $dom->createCDATASection(htmlspecialchars($title, ENT_NOQUOTES, 'UTF-8'));
