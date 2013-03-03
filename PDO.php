@@ -67,6 +67,7 @@ foreach($newsloop as $news){
 	$sqlcomm = 'SELECT tid, pid, date, name, email, url, host_name, comment FROM '.$prefix.'_comments WHERE sid = '.$sid.' ORDER BY tid';
 	$querycomm = $dbh->prepare($sqlcomm);
 	$querycomm->execute();
+	//if no comments for this article, don't add to xml.
 	if($querycomm->rowcount() > 0){
 		$channel->appendChild($item);
 		$item->appendChild($ttitle);
@@ -81,6 +82,7 @@ foreach($newsloop as $news){
 			$cname = $comms['name'];
 			$email = $comms['email'];
 			$url = $comms['url'];
+			//I'm attempting to add some missing data, but usernaming matching is iffy.
 			if(empty($email) OR empty($url)){
 				$sqluser = 'SELECT user_email, user_website FROM '.$prefix.'_users WHERE username = :cname LIMIT 1';
 				$queryuser = $dbh->prepare($sqluser);
@@ -123,3 +125,5 @@ $dom->formatOutput = true;
 echo utf8_decode($dom->save('exported.xml'));  //We're saving this to same location as this file
 //echo utf8_decode($dom->saveXML()); This will print it to screen
 
+//Bye Bye Connection
+$dbh = null;
