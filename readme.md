@@ -12,4 +12,6 @@ Nuke to Disqus
 5. Use the Generic (WXR) option on the Disqus import to upload exported.xml.
 
 #### Notes
-*  You can use http://validator.w3.org/ to validate.
+* Requires PDO extension for PHP.  Mysql version soon I guess.
+* You can use http://validator.w3.org/ to validate.
+* You can check the percentage of your import status at http://import.disqus.com/.
