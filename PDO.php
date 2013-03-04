@@ -23,11 +23,13 @@ $module_name = 'News';//Module Name
 
 
 
-//Some Replacements
+//Some Modifications
 
 function disqushtml($context)
 {
 	//Could add some more filters here if you need theme
+	
+	//Can comment out if you don't want to strip out any html.
 	
 	$context = strip_tags($context, '<a><blockquote>');
 	
@@ -134,6 +136,11 @@ foreach($newsloop as $news)
 			
 			$url = $comms['url'];
 			
+			$ipaddy = $comms['host_name'];
+			
+			//Filter function
+			$comment = disqushtml($comms['comment']);			
+			
 			//I decided to query the users table since some of comments were missing urls and emails.
 			//That being said, matching by username is hit and miss.
 			if(empty($email) OR empty($url))
@@ -156,9 +163,6 @@ foreach($newsloop as $news)
 					$url = $resultuser['user_website'];
 				}
 			}
-			$ipaddy = $comms['host_name'];
-			
-			$comment = disqushtml($comms['comment']);
 			
 			$wpcom = $dom->createElement('wp:comment');
 			
