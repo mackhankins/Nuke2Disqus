@@ -103,7 +103,7 @@ foreach($newsloop as $news)
 
 		$link = $dom->createElement('link', htmlentities($pageurl));
 
-		$dsqthread = $dom->createElement('dsq:thread_identifier', $module_name.'-'.$sid);
+		$dsqthread = $dom->createElement('dsq:thread_identifier', $module_name.' '.$sid);
 
 		$postdate = $dom->createElement('wp:post_date_gmt', $time);
 
