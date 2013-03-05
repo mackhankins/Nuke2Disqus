@@ -95,14 +95,12 @@ foreach($newsloop as $news)
 	{
 		$item = $dom->createElement('item');
 
-		$ttitle = $dom->createElement('title');
-
-		$ttitledata = $dom->createCDATASection(htmlspecialchars($title, ENT_NOQUOTES, 'UTF-8'));
-
-		$ttitledata = $ttitle->appendChild($ttitledata);
+		$ttitle = $dom->createElement('title', htmlspecialchars($title, ENT_NOQUOTES, 'UTF-8'));
 
 		$link = $dom->createElement('link', htmlentities($pageurl));
 
+		//Be sure to modify the Identifier if you need to
+		
 		$dsqthread = $dom->createElement('dsq:thread_identifier', $module_name.'-'.$sid);
 
 		$postdate = $dom->createElement('wp:post_date_gmt', $time);
